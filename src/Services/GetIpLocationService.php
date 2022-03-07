@@ -40,7 +40,7 @@ class GetIpLocationService
 
         $result = json_decode($response->getContent(), true);
 
-        if (false === $result['success']) {
+        if (isset($result['success']) && false === $result['success']) {
             throw RequestFailedException::badRequest($response);
         }
 
