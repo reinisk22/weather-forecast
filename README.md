@@ -1,6 +1,6 @@
-#A simple API to get weather forecast for your IP address location
+# A simple API to get weather forecast for your IP address location
 
-#External API's used
+# External API's used
 
 ### IP - https://ipecho.net/developers.html
 > **Note:** Usually we would get ip from `Symfony\Component\HttpFoundation\Request::GetClientIp()`, 
@@ -25,8 +25,8 @@
 ### How to use
 
 ```
-git clone <repo>
-cd <repo>
+git clone https://github.com/reinisk22/weather-forecast.git
+cd <path/to/where/you/cloned/the/repository>
 composer install
 
 symfony serve -d
@@ -35,7 +35,6 @@ docker compose up -d
 
 symfony console doctrine:migrations:migrate
 ```
-
 
 ### Endpoints
 
