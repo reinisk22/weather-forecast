@@ -38,11 +38,11 @@ class GetIpLocationService
             ),
         );
 
-        if (200 !== $response->getStatusCode()) {
+        $result = json_decode($response->getContent(), true);
+
+        if (false === $result['success']) {
             throw RequestFailedException::badRequest($response);
         }
-
-        $result = json_decode($response->getContent(), true);
 
         return (new IpLocation())
             ->setIp($result['ip'])
