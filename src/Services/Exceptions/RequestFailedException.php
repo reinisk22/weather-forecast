@@ -18,14 +18,4 @@ class RequestFailedException extends RuntimeException
             )
         );
     }
-
-    public static function notFound(ResponseInterface $response): self
-    {
-        return new self(
-            sprintf(
-                'Not Found. Message - %s',
-                $response->getContent(),
-            )
-        );
-    }
 }

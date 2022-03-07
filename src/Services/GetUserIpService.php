@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Utils\ExceptionHandler;
+use App\Services\Exceptions\RequestFailedException;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class GetUserIpService
@@ -26,7 +26,7 @@ class GetUserIpService
         );
 
         if (200 !== $response->getStatusCode()) {
-            ExceptionHandler::handleError($response);
+            throw RequestFailedException::badRequest($response);
         }
 
         return $response->getContent();

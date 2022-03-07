@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Utils\ExceptionHandler;
+use App\Services\Exceptions\RequestFailedException;
 use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
@@ -44,7 +44,7 @@ class GetWeatherForecastService
         );
 
         if (200 !== $response->getStatusCode()) {
-            ExceptionHandler::handleError($response);
+            throw RequestFailedException::badRequest($response);
         }
 
         $result = json_decode($response->getContent(), true);
