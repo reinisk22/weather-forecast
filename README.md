@@ -1,4 +1,4 @@
-# A simple API to get weather forecast for your IP address location
+# Simple API to get weather forecast for your ip addresses location
 
 # External API's used
 
@@ -26,7 +26,7 @@
 
 ```
 git clone https://github.com/reinisk22/weather-forecast.git
-cd <path/to/where/you/cloned/the/repository>
+cd /weather-forecast
 composer install
 
 symfony serve -d
