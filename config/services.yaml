@@ -22,3 +22,21 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Controller\:
+        resource: '../src/Controller/'
+        tags: [ 'controller.service_arguments' ]
+
+    App\Services\GetIpLocationService:
+        arguments:
+            $apiUrl: '%env(IP_LOCATION_API_URL)%'
+            $secretKey: '%env(IP_LOCATION_SECRET_KEY)%'
+
+    App\Services\GetWeatherForecastService:
+        arguments:
+            $apiUrl: '%env(WEATHER_FORECAST_API_URL)%'
+            $secretKey: '%env(WEATHER_FORECAST_SECRET_KEY)%'
+
+    App\Services\GetUserIpService:
+        arguments:
+            $apiUrl: '%env(USER_IP_API_URL)%'
